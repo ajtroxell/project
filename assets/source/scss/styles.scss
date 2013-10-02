@@ -1,0 +1,114 @@
+/* ===========================================================================
+	General Styles
+	========================================================================== */
+	html {
+		margin: 0;
+		font-size: 62.5%;
+	}
+
+	body {
+		font-family: $open-sans;
+		color: $black;
+		background: $background;
+		-ms-word-wrap: break-word;
+		word-wrap: break-word;
+	}
+
+	/*  Element Resets
+		========================================================================== */
+		h1,h2,h3,h4,h5,h6 {
+			font-family: $open-sans;
+			font-weight: 700;
+		}
+
+		h1 {
+			font-weight: 800;
+		}
+
+	/*  Buttons
+		========================================================================== */
+		.btn,input[type=submit],input[type=button],button[type=submit],button {
+			position: relative;
+			clear: both;
+			display: inline-block;
+			margin-bottom: 1em;
+			padding: .5em 2.4em;
+			font-family: $open-sans;
+			@include font-size(14,14);
+			text-shadow: 0px -1px $btn-text-border;
+			font-weight: 400;
+			color: $white;
+			background: $btn-light; /* Old browsers */
+			background: -moz-linear-gradient(top, $btn-light 0%, $btn-dark 40%, $btn-dark 72%, $btn-medium 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$btn-light), color-stop(40%,$btn-dark), color-stop(72%,$btn-dark), color-stop(100%,$btn-medium)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* IE10+ */
+			background: linear-gradient(to bottom, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$btn-light', endColorstr='$btn-medium',GradientType=0 ); /* IE6-9 */
+			border: 1px solid $btn-border-dark;
+			@include border-radius(.25em);
+			@include box-shadow((inset 1px 0px 0px $btn-border-light, inset -1px 0px 0px $btn-border-light, inset 0px 1px 0px $btn-border-light, inset 0px -1px 0px $btn-border-light));
+			@include transition(box-shadow .4s);
+			&:hover {
+				@include box-shadow((inset 1px 0px 4px $btn-hover-glow, inset -1px 0px 4px $btn-hover-glow, inset 0px 1px 4px $btn-hover-glow, inset 0px -1px 4px $btn-hover-glow));
+			}
+			&:active {
+				background: $btn-active-bg;
+				@include box-shadow((inset 1px 0px 4px $btn-active-glow, inset -1px 0px 4px $btn-active-glow, inset 0px 1px 4px $btn-active-glow, inset 0px -1px 4px $btn-active-glow));
+				@include transition(box-shadow 0s);
+			}
+		}
+
+		.btn-full {
+			display: inline-block;
+			width: 100%;
+			max-width: 100%;
+			text-align: center;
+		}
+
+/* ===========================================================================
+	Header
+	========================================================================== */
+	header#primary {
+		position: relative;
+		background: $dark-blue;
+		border-bottom: 5px solid $medium-blue;
+		@include box-shadow(0px 0px 10px $black);
+		.row {
+			width: 921px;
+		}
+		.social {
+			margin: 0;
+			text-align: right;
+			li {
+				display: inline-block;
+				&.facebook {
+
+				}
+				&.twitter  {
+
+				}
+			}
+			form {
+				margin: 0;
+				width: 159px;
+			}
+		}
+	}
+
+	/*  Social
+		========================================================================== */
+
+	/*  Navigation
+		========================================================================== */
+
+/* ===========================================================================
+	Content Area
+	========================================================================== */
+	#wrap-content-outer {
+		width: 1020px;
+		background: $white;
+		@include box-shadow(0px 0px 20px rgba($black, .6));
+	}
+		
