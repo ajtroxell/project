@@ -22,15 +22,14 @@
 	}
 
 	a {
-		color: inherit;
+		color: $medium-blue;
 		text-decoration: none;
-		border-bottom: 1px dotted;
-		border-color: inherit;
+		font-weight: 600;
 		&:visited {
-			color: inherit;
+			color: $medium-blue;
 		}
 		&:hover {
-			color: inherit;
+			color: $dark-blue;
 			text-decoration: none;
 		}
 	}

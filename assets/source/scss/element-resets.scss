@@ -34,7 +34,8 @@
 	}
 
 	p {
-		@include font-size(15);
+		@include font-size(12,20);
+		font-weight: 300;
 	}
 
 	small {
@@ -53,6 +54,8 @@
 		max-width: 100%;
 	}
 
-	ul, ol {
-		margin: 0 1.2em;
+	article ul, article ol {
+		margin: 0 1.2em 1.25em 1.2em;
+		@include font-size(12,20);
+		font-weight: 300;
 	}

@@ -7,9 +7,11 @@
 	}
 
 	body {
+		padding-bottom: 3em;
 		font-family: $open-sans;
-		color: $black;
+		color: $text;
 		background: $background;
+		@include linear-gradient($background, $background-dark);
 		-ms-word-wrap: break-word;
 		word-wrap: break-word;
 	}
@@ -21,8 +23,14 @@
 			font-weight: 700;
 		}
 
-		h1 {
+		h2 {
+			@include font-size(16,16);
 			font-weight: 800;
+			color: $medium-blue;
+		}
+
+		h3 {
+			@include font-size(12,12);
 		}
 
 	/*  Buttons
@@ -32,31 +40,37 @@
 			clear: both;
 			display: inline-block;
 			margin-bottom: 1em;
-			padding: .5em 2.4em;
+			padding: .5em 2.4em .65em 2.4em;
 			font-family: $open-sans;
-			@include font-size(14,14);
-			text-shadow: 0px -1px $btn-text-border;
-			font-weight: 400;
-			color: $white;
-			background: $btn-light; /* Old browsers */
-			background: -moz-linear-gradient(top, $btn-light 0%, $btn-dark 40%, $btn-dark 72%, $btn-medium 100%); /* FF3.6+ */
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$btn-light), color-stop(40%,$btn-dark), color-stop(72%,$btn-dark), color-stop(100%,$btn-medium)); /* Chrome,Safari4+ */
-			background: -webkit-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(top, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* IE10+ */
-			background: linear-gradient(to bottom, $btn-light 0%,$btn-dark 40%,$btn-dark 72%,$btn-medium 100%); /* W3C */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$btn-light', endColorstr='$btn-medium',GradientType=0 ); /* IE6-9 */
-			border: 1px solid $btn-border-dark;
-			@include border-radius(.25em);
-			@include box-shadow((inset 1px 0px 0px $btn-border-light, inset -1px 0px 0px $btn-border-light, inset 0px 1px 0px $btn-border-light, inset 0px -1px 0px $btn-border-light));
-			@include transition(box-shadow .4s);
+			@include font-size(18,18);
+			font-weight: 700;
+			color: $btn-text;
+			background: $btn-color-top;
+			@include linear-gradient($btn-color-top,$btn-color-bottom);
+			@include box-shadow(inset 0 2px 4px $btn-shadow);
+			@include border-radius(1em);
+			border: 1px solid;
+			border-color:  $btn-border-top $btn-border $btn-border;
+			&:visited {
+				color: $btn-text;
+			}
 			&:hover {
-				@include box-shadow((inset 1px 0px 4px $btn-hover-glow, inset -1px 0px 4px $btn-hover-glow, inset 0px 1px 4px $btn-hover-glow, inset 0px -1px 4px $btn-hover-glow));
+				color: $btn-hover-text;
+				background: $btn-hover-color-top;
+				@include linear-gradient($btn-hover-color-top,$btn-hover-color-bottom);
+				@include box-shadow(inset 0 2px 4px $btn-hover-shadow);
+				@include border-radius(1em);
+				border: 1px solid;
+				border-color:  $btn-hover-border-top $btn-hover-border $btn-hover-border;
 			}
 			&:active {
-				background: $btn-active-bg;
-				@include box-shadow((inset 1px 0px 4px $btn-active-glow, inset -1px 0px 4px $btn-active-glow, inset 0px 1px 4px $btn-active-glow, inset 0px -1px 4px $btn-active-glow));
-				@include transition(box-shadow 0s);
+				color: $btn-hover-text;
+				background: $btn-hover-color-bottom;
+				background-image: none;
+				@include box-shadow(inset 0 2px 4px $btn-hover-border);
+				@include border-radius(1em);
+				border: 1px solid;
+				border-color:  $btn-hover-border-top $btn-hover-border $btn-hover-border;
 			}
 		}
 
@@ -72,43 +86,159 @@
 	========================================================================== */
 	header#primary {
 		position: relative;
+		padding: 1.2em 0 2em 0;
 		background: $dark-blue;
 		border-bottom: 5px solid $medium-blue;
 		@include box-shadow(0px 0px 10px $black);
-		.row {
-			width: 921px;
+
+		/*  First row width
+		========================================================================== */
+		> .row {
+			width: 951px;
 		}
-		.social {
+
+		/*  Logo
+		========================================================================== */
+		.logo img {
+			max-width: 301px;
+			height: auto;
+		}
+
+		/*  Search
+		========================================================================== */
+		form.search {
+			position: relative;
+			float: right;
 			margin: 0;
-			text-align: right;
+			width: 159px;
+			input[type=text] {
+				margin: 0;
+				padding: 0 1em;
+				height: 1.7em;
+				@include font-size(12,12);
+				color: $input-header-text;
+				border: 0px;
+				@include border-radius(.4em);
+				@include box-shadow(none);
+			}
+			button {
+				position: absolute;
+				top: .35em;
+				right: 1em;
+				margin: 0;
+				padding: 0;
+				width: 12px;
+				height: 13px;
+				@include font-size(12,12);
+				text-shadow: none;
+				text-indent: -9999em;
+				color: $input-header-text;
+				background: $white url(images/btn-header-search.jpg) no-repeat top left;
+				border: 0px;
+				@include border-radius(0em);
+				@include box-shadow(none);
+				@include transition(none);
+			}
+		}
+
+		/*  Social
+		========================================================================== */
+		.social {
+			margin: .14em 0 0 .3em;
+			padding: 0 0 0 .3em;
+			float: right;
+			line-height: 0;
+			border-left: 1px solid $social-header-border;
 			li {
 				display: inline-block;
-				&.facebook {
-
+				&.facebook,&.twitter{
+					width: 16px;
+					height: 16px;
+					a {
+						display: block;
+						width: 16px;
+						height: 16px;
+						text-indent: -9999em;
+						background: url(images/sprite-social.gif) no-repeat top left;
+						&:hover {
+							background-position: 0 -20px;
+						}
+					}
 				}
-				&.twitter  {
-
+				&.twitter a  {
+					background-position: -20px 0;
+					&:hover {
+						background-position: -20px -20px;
+					}
 				}
-			}
-			form {
-				margin: 0;
-				width: 159px;
 			}
 		}
+
+		/*  Navigation
+		========================================================================== */
+		nav#primary ul {
+			margin: .83em -.8em 0 0;
+			padding: 0;
+			li {
+				display: inline-block;
+				margin-left: .3em;
+				a {
+					display: block;
+					padding: .65em .8em;
+					@include font-size(14,14);
+					font-weight: 300;
+					color: $white;
+					&:hover {
+						background: $medium-blue;
+						@include border-radius(1.2em);
+					}
+				}
+			}
+		}
+
 	}
 
-	/*  Social
-		========================================================================== */
-
-	/*  Navigation
-		========================================================================== */
 
 /* ===========================================================================
 	Content Area
 	========================================================================== */
 	#wrap-content-outer {
 		width: 1020px;
+		@include border-radius(0,0,1.4em,1.4em);
 		background: $white;
 		@include box-shadow(0px 0px 20px rgba($black, .6));
 	}
-		
+
+	.wrap-content-inner {
+		padding: 4em;
+	}
+
+/* ===========================================================================
+	Footer
+	========================================================================== */
+	footer {
+		padding-top: 1em;
+		ul {
+			li {
+				display: inline-block;
+				padding: 0 .5em 0 .1em;
+				@include font-size(10,10);
+				color: $white;
+				border-right: 1px solid $white;
+				&:last-child {
+					border-right: 0px;
+				}
+				a {
+					font-weight: 300;
+					color: $white;
+					&:visited {
+						color: $white;
+					}
+					&:hover {
+						font-weight: 500;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}

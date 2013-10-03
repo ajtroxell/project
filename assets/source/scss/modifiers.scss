@@ -22,8 +22,8 @@
 
 	.hidden-txt {
 		position: absolute;
-		left: -9999em;
-		top: -9999em;
+		clip: rect(1px 1px 1px 1px); /* IE6 & 7 */
+		clip: rect(1px, 1px, 1px, 1px);
 	}
 
 	.bg-full {
